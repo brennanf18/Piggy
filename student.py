@@ -62,7 +62,7 @@ class Piggy(PiggyParent):
         
         #lower0-ordered example...
         self.fwd()
-        time.sleep()
+        time.sleep(2)
         self.stop()
 
     def safe_to_dance(self):
