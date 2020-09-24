@@ -72,7 +72,7 @@ class Piggy(PiggyParent):
     def shake(self):
         self.deg_fwd(720)
         self.stop()
-        self.deg_fwd(720)
+        self.back(720)
         self.stop()
     
     
