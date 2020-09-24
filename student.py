@@ -69,7 +69,7 @@ class Piggy(PiggyParent):
         # self.backwards_conga
         # look for another move
 
-    def forward_skipp(self):
+        def forward_skipp(self):
         self.fwd()
         time.sleep(.5)
         self.stop()
