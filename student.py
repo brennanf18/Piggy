@@ -57,86 +57,85 @@ class Piggy(PiggyParent):
     '''
 
     def dance(self):
-            """A higher-ordered algorithm to make your robot dance"""
-            # TODO: check to see if it's safe before dancing
-            
-            #lower0-ordered example...
-            
+        """A higher-ordered algorithm to make your robot dance"""
+        # TODO: check to see if it's safe before dancing
         
-            # self.foward_skipp
-            # self.right_twirl
-            # self.left_twirl
-            # self.backwards_conga
-            # look for another move
+        #lower0-ordered example...
+        
     for x in range(5):
+        # self.foward_skipp
+        # self.right_twirl
+        # self.left_twirl
+        # self.backwards_conga
+        # look for another move
 
-        def forward_skipp(self):
+    def forward_skipp(self):
+        self.fwd()
+        time.sleep(.5)
+        self.stop()
+
+
+
+    def safe_to_dance(self):
+        """ Does a 360 distance check and returns true if safe """
+        pass
+
+    def shake(self):
+        self.deg_fwd(720)
+        self.stop()
+        self.back(720)
+        self.stop()
+    
+    
+    def example_move(self):
+        
+        """this is an example dance move that should be replaced by student-created content"""
+        self.right() # start rotating right
+        time.sleep(1) # turn for a second
+        self.stop() # stop
+        self.servo(1000) # look right
+        time.sleep(.25) # give your head time to move
+        self.servo(2000) # look left
+
+    def scan(self):
+        """Sweep the servo and populate the scan_data dictionary"""
+        for angle in range(self.MIDPOINT-350, self.MIDPOINT+350, 3):
+            self.servo(angle)
+            self.scan_data[angle] = self.read_distance()
+
+    def obstacle_count(self):
+        """Does a 360 scan and returns the number of obstacles it sees"""
+        pass
+
+    def nav(self):
+        print("-----------! NAVIGATION ACTIVATED !------------\n")
+        print("-------- [ Press CTRL + C to stop me ] --------\n")
+        print("-----------! NAVIGATION ACTIVATED !------------\n")
+        
+        # TODO: build self.quick_check() that does a fast, 3-part check instead of read_distance
+        while self.read_distance() > 250:  # TODO: fix this magic number
             self.fwd()
-            time.sleep(.5)
-            self.stop()
-
-
-
-        def safe_to_dance(self):
-            """ Does a 360 distance check and returns true if safe """
-            pass
-
-        def shake(self):
-            self.deg_fwd(720)
-            self.stop()
-            self.back(720)
-            self.stop()
+            time.sleep(.01)
+        self.stop()
+        # TODO: scan so we can decide left or right
+        # TODO: average the right side of the scan dict
+        # TODO: average the left side of the scan dict
         
-        
-        def example_move(self):
-            
-            """this is an example dance move that should be replaced by student-created content"""
-            self.right() # start rotating right
-            time.sleep(1) # turn for a second
-            self.stop() # stop
-            self.servo(1000) # look right
-            time.sleep(.25) # give your head time to move
-            self.servo(2000) # look left
-
-        def scan(self):
-            """Sweep the servo and populate the scan_data dictionary"""
-            for angle in range(self.MIDPOINT-350, self.MIDPOINT+350, 3):
-                self.servo(angle)
-                self.scan_data[angle] = self.read_distance()
-
-        def obstacle_count(self):
-            """Does a 360 scan and returns the number of obstacles it sees"""
-            pass
-
-        def nav(self):
-            print("-----------! NAVIGATION ACTIVATED !------------\n")
-            print("-------- [ Press CTRL + C to stop me ] --------\n")
-            print("-----------! NAVIGATION ACTIVATED !------------\n")
-            
-            # TODO: build self.quick_check() that does a fast, 3-part check instead of read_distance
-            while self.read_distance() > 250:  # TODO: fix this magic number
-                self.fwd()
-                time.sleep(.01)
-            self.stop()
-            # TODO: scan so we can decide left or right
-            # TODO: average the right side of the scan dict
-            # TODO: average the left side of the scan dict
-            
 
 
-    ###########
-    ## MAIN APP
-    if __name__ == "__main__":  # only run this loop if this is the main file
+###########
+## MAIN APP
+if __name__ == "__main__":  # only run this loop if this is the main file
 
-        p = Piggy()
+    p = Piggy()
 
-        if sys.version_info < (3, 0):
-            sys.stdout.write("Sorry, requires Python 3.x\n")
-            p.quit()
+    if sys.version_info < (3, 0):
+        sys.stdout.write("Sorry, requires Python 3.x\n")
+        p.quit()
 
-        try:
-            while True:  # app loop
-                p.menu()
+    try:
+        while True:  # app loop
+            p.menu()
 
-        except KeyboardInterrupt: # except the program gets interrupted by Ctrl+C on the keyboard.
-            p.quit()  
+    except KeyboardInterrupt: # except the program gets interrupted by Ctrl+C on the keyboard.
+        p.quit()  
