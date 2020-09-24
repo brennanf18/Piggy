@@ -62,14 +62,15 @@ class Piggy(PiggyParent):
         
         #lower0-ordered example...
         
-    for x in range(5):
-        # self.foward_skipp
-        # self.right_twirl
-        # self.left_twirl
-        # self.backwards_conga
-        # look for another move
+        for x in range(5):
+            pass
+            self.foward_skipp()
+            # self.right_twirl
+            # self.left_twirl
+            # self.backwards_conga
+            # look for another move
 
-        def forward_skipp(self):
+    def forward_skipp(self):
         self.fwd()
         time.sleep(.5)
         self.stop()
