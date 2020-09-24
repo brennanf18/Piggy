@@ -80,9 +80,9 @@ class Piggy(PiggyParent):
 
     def right_twirl(self):
         for x in range(2)
-        self.right(primary = 50, counter = -50)
-        time.sleep(.5)
-        self.stop()
+            self.right(primary = 50, counter = -50)
+            time.sleep(.5)
+            self.stop()
 
 
     def safe_to_dance(self):
