@@ -62,7 +62,7 @@ class Piggy(PiggyParent):
         
         #lower0-ordered example...
         
-        for x in range(5):
+        for x in range(1):
             pass
             self.forward_skipp()
             self.right_twirl()
