@@ -71,9 +71,12 @@ class Piggy(PiggyParent):
             # look for another move
 
     def forward_skipp(self):
-        self.fwd()
-        time.sleep(.1)
-        self.stop()
+        for x in range(3):
+            self.fwd()
+            time.sleep(.2)
+            self.back()
+            time.sleep(.1)
+            self.stop()
 
 
 
