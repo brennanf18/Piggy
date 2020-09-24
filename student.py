@@ -72,7 +72,7 @@ class Piggy(PiggyParent):
 
     def forward_skipp(self):
         self.fwd()
-        time.sleep(.5)
+        time.sleep(.1)
         self.stop()
 
 
