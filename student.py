@@ -65,6 +65,7 @@ class Piggy(PiggyParent):
         for x in range(5):
             pass
             self.forward_skipp()
+            time.sleep(2)
             self.right_twirl()
             # self.left_twirl
             # self.backwards_conga
