@@ -62,7 +62,7 @@ class Piggy(PiggyParent):
         
         #lower0-ordered example...
         
-        for x in range(3):
+        for x in range(1):
             pass
             self.forward_skipp()
             time.sleep(.5)
@@ -83,8 +83,8 @@ class Piggy(PiggyParent):
 
     def right_twirl(self):
         for x in range(5):
-            self.right(primary = 100, counter = -100)
-            time.sleep(.5)
+            self.turn_by_deg(180)
+            self.turn_by_deg(180)
             self.stop()
             
     
