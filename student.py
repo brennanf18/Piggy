@@ -65,14 +65,14 @@ class Piggy(PiggyParent):
         for x in range(5):
             pass
             self.forward_skipp()
-            time.sleep(.75)
+            time.sleep(.5)
             self.right_twirl()
             # self.left_twirl
             # self.backwards_conga
             # look for another move
 
     def forward_skipp(self):
-        for x in range(5):
+        for x in range(4):
             self.fwd()
             time.sleep(.5)
             self.back()
@@ -80,7 +80,7 @@ class Piggy(PiggyParent):
             self.stop()
 
     def right_twirl(self):
-        for x in range(2):
+        for x in range(5):
             self.right(primary = 100, counter = -90)
             time.sleep(.5)
             self.stop()
