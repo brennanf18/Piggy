@@ -82,16 +82,16 @@ class Piggy(PiggyParent):
             self.stop()
 
     def right_twirl(self):
-        for x in range(4):
+        for x in range(2):
             self.turn_by_deg(180)
             self.turn_by_deg(180)
             self.stop()
             
     
     def left_twirl(self):
-        for x in range(4):
-            self.turn_by_deg(-180)
-            self.turn_by_deg(-180)
+        for x in range(2):
+            self.turn_by_deg(-170)
+            self.turn_by_deg(-170)
             self.stop()
 
     
