@@ -103,6 +103,10 @@ class Piggy(PiggyParent):
         for x in range(4):
             self.back()
             time.sleep(.5)
+            self.servo(1000)
+            time.sleep(.1)
+            self.servo(2000)
+            time.sleep(.1)
             self.fwd()
             time.sleep(.1)
             self.stop()
