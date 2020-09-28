@@ -118,7 +118,7 @@ class Piggy(PiggyParent):
             self.stop()
 
     def laberinth(self):
-        for x in range(2):
+        for x in range(3):
             self.fwd()
             time.sleep(.5)
             self.turn_by_deg(-40)
