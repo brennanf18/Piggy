@@ -93,8 +93,8 @@ class Piggy(PiggyParent):
         # Then I twist to the right 
     def right_twirl(self):
         for x in range(2):
-            self.turn_by_deg(190)
-            self.turn_by_deg(190)
+            self.turn_by_deg(180)
+            self.turn_by_deg(180)
             self.stop()
             
     
@@ -121,16 +121,16 @@ class Piggy(PiggyParent):
         for x in range(2):
             self.fwd()
             time.sleep(.5)
-            self.turn_by_deg(-20)
+            self.turn_by_deg(-40)
             self.fwd()
             time.sleep(.4)
-            self.turn_by_deg(20)
+            self.turn_by_deg(40)
             self.fwd()
             time.sleep(.4)
-            self.turn_by_deg(20)
+            self.turn_by_deg(40)
             self.fwd()
             time.sleep(.4)
-            self.turn_by_deg(-20)
+            self.turn_by_deg(-40)
             self.fwd()
             self.stop()
 
