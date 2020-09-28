@@ -121,13 +121,13 @@ class Piggy(PiggyParent):
         for x in range(2):
             self.fwd()
             time.sleep(.5)
-            self.right(primary= 50, counter =50)
+            self.right(primary= 80, counter =80)
             time.sleep(.5)
-            self.left(primary= 50, counter =50)
+            self.left(primary= 80, counter =80)
             time.sleep(.5)
-            self.left(primary= 50, counter =50)
+            self.left(primary= 80, counter =80)
             time.sleep(.5)
-            self.right(primary= 50, counter =50)
+            self.right(primary= 80, counter =80)
             self.stop()
 
 
