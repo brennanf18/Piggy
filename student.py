@@ -118,17 +118,17 @@ class Piggy(PiggyParent):
             self.stop()
 
     def laberinth(self):
-        for x in range 2:
-        self.fwd()
-        time.sleep(.1)
-        self.right(primary= 50, counter =50)
-        time.sleep(.1)
-        self.left(primary= 50, counter =50)
-        time.sleep(.1)
-        self.left(primary= 50, counter =50)
-        time.sleep(.1)
-        self.right(primary= 50, counter =50)
-        self.stop()
+        for x in range(2):
+            self.fwd()
+            time.sleep(.1)
+            self.right(primary= 50, counter =50)
+            time.sleep(.1)
+            self.left(primary= 50, counter =50)
+            time.sleep(.1)
+            self.left(primary= 50, counter =50)
+            time.sleep(.1)
+            self.right(primary= 50, counter =50)
+            self.stop()
 
 
 
