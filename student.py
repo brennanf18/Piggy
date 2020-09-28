@@ -100,8 +100,8 @@ class Piggy(PiggyParent):
     
     def left_twirl(self):
         for x in range(2):
-            self.turn_by_deg(-190)
-            self.turn_by_deg(-190)
+            self.turn_by_deg(-170)
+            self.turn_by_deg(-170)
             self.stop()
 
     
@@ -122,11 +122,11 @@ class Piggy(PiggyParent):
             self.fwd()
             time.sleep(.5)
             self.right(primary= 50, counter =50)
-            time.sleep(.1)
+            time.sleep(.5)
             self.left(primary= 50, counter =50)
-            time.sleep(.1)
+            time.sleep(.5)
             self.left(primary= 50, counter =50)
-            time.sleep(.1)
+            time.sleep(.5)
             self.right(primary= 50, counter =50)
             self.stop()
 
