@@ -71,9 +71,13 @@ class Piggy(PiggyParent):
             self.left_twirl()
             time.sleep(.5)
             self.cha_cha()
-            # look for another move
+            time.sleep(.5)
+            self.laberinth()
+
+            # look for more move
 
     def forward_skipp(self):
+        """this is my first move"""
         for x in range(4):
             self.fwd()
             time.sleep(.5)
@@ -84,7 +88,9 @@ class Piggy(PiggyParent):
             self.back()
             time.sleep(.1)
             self.stop()
-
+        
+        
+        # Then I twist to the right 
     def right_twirl(self):
         for x in range(2):
             self.turn_by_deg(180)
@@ -110,6 +116,21 @@ class Piggy(PiggyParent):
             self.fwd()
             time.sleep(.1)
             self.stop()
+
+    def laberinth(self):
+        for x in range 2:
+        self.fwd()
+        time.sleep(.1)
+        self.right(primary= 50, counter =50)
+        time.sleep(.1)
+        self.left(primary= 50, counter =50)
+        time.sleep(.1)
+        self.left(primary= 50, counter =50)
+        time.sleep(.1)
+        self.right(primary= 50, counter =50)
+        self.stop()
+
+
 
 
     def safe_to_dance(self):
