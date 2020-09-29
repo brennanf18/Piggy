@@ -66,18 +66,18 @@ class Piggy(PiggyParent):
 
         for x in range(1):
             pass
-        if not self.safe_to_dance()
-            return false # Shut the dance down
-            self.forward_skipp()
-            time.sleep(.5)
-            self.right_twirl()
-            time.sleep(.1)
-            self.left_twirl()
-            time.sleep(.5)
-            self.cha_cha()
-            time.sleep(.5)
-            self.laberinth()
-            
+            if not self.safe_to_dance()
+                return false # Shut the dance down
+                self.forward_skipp()
+                time.sleep(.5)
+                self.right_twirl()
+                time.sleep(.1)
+                self.left_twirl()
+                time.sleep(.5)
+                self.cha_cha()
+                time.sleep(.5)
+                self.laberinth()
+                
 
             # look for more moves
 
