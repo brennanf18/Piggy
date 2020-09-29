@@ -75,8 +75,7 @@ class Piggy(PiggyParent):
             self.cha_cha()
             time.sleep(.5)
             self.laberinth()
-            time.sleep(.5)
-            self.Wheelie_Time()
+            
 
             # look for more moves
 
@@ -136,12 +135,8 @@ class Piggy(PiggyParent):
             time.sleep(.5)
             self.turn_by_deg(-40)
             self.fwd()
-            time.sleep(.5)
-            time.stop()
+            self.stop()
 
-    def Wheelie_Time(self):
-        self.back()
-        time.sleep(1)
 
 
 
