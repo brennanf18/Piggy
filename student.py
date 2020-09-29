@@ -144,7 +144,7 @@ class Piggy(PiggyParent):
         """ Does a 360 distance check and returns true if safe """
         # Check for all fail/early-termination conditions
         for _ in range(4):
-            if self.read_distance()< 300:
+            if self.read_distance()< 600:
                 print("NOT SAFE TO DANCE!!!")
                 return False
             else:
