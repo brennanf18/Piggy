@@ -135,7 +135,9 @@ class Piggy(PiggyParent):
             time.sleep(.5)
             self.turn_by_deg(-40)
             self.fwd()
-            time.sleep(.5)
+            time.stop()
+           
+        for x in range(3): 
             self.back()
             time.sleep(.5)
             self.turn_by_deg(-40)
