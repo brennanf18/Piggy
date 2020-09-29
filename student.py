@@ -66,8 +66,10 @@ class Piggy(PiggyParent):
 
         for x in range(1):
             pass
+            
             if not self.safe_to_dance()
                 return false # Shut the dance down
+                
                 self.forward_skipp()
                 time.sleep(.5)
                 self.right_twirl()
