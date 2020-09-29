@@ -60,7 +60,7 @@ class Piggy(PiggyParent):
         """A higher-ordered algorithm to make your robot dance"""
 
         
-        if not self.safe_to_dance()
+        if not self.safe_to_dance():
             return False # Shut the dance down
 
 
