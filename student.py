@@ -92,6 +92,7 @@ class Piggy(PiggyParent):
             time.sleep(.1)
             self.back()
             time.sleep(.1)
+            self.servo(-1000)
             self.stop()
         
         
@@ -140,8 +141,10 @@ class Piggy(PiggyParent):
             self.stop()
 
     def wheelie_time(self):
-        self.back(2)
-        self.fwd(1)
+        self.back()
+        time.sleep(.1)
+        self.fwd()
+        time.sleep(.1)
         self.stop()
 
 
