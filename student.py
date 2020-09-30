@@ -75,7 +75,7 @@ class Piggy(PiggyParent):
             self.cha_cha()
             time.sleep(.5)
             self.laberinth()
-            time.sleep(.5)
+            time.sleep(.8)
             self.cha_cha()
             time.sleep(.5)
             self.wheelie_time()
