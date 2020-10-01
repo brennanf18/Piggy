@@ -130,24 +130,25 @@ class Piggy(PiggyParent):
     def cha_cha(self):
         for x in range(4):
             self.back()
-            time.sleep(.5)
+            time.sleep(.3)
             self.servo(1000)
-            time.sleep(.1)
+            time.sleep(.3)
             self.servo(2000)
-            time.sleep(.1)
+            time.sleep(.3)
             self.fwd()
             time.sleep(.3)
             self.stop()
 
     def laberinth(self):
         for x in range(4):
+            self.servo(1000)
+            time.sleep(.1)
             self.right(primary=70, counter=30)
             time.sleep(1)
-            self.servo(1000)
+            self.servo(-2000)
             time.sleep(.1)
             self.left(primary=70, counter=30)
             time.sleep(1)
-            self.servo(-1000)
         self.stop()
 
     def wheelie_time(self):
