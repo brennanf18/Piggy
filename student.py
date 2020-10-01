@@ -78,9 +78,10 @@ class Piggy(PiggyParent):
             time.sleep(.5)
             self.cha_cha()
             time.sleep(.5)
-            
-        self.wheelie_time()
-        self.(stop)
+
+        for x in range(1):  
+            self.wheelie_time()
+            self.(stop)
             
 
             # look for more moves
