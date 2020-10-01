@@ -149,7 +149,7 @@ class Piggy(PiggyParent):
 
     def wheelie_time(self):
         self.fwd(right=100, left=100)
-        time.sleep(.3)
+        time.sleep(.5)
         self.fwd(right=-100, left=-100)
         for x in range(2):
             self.turn_by_deg(180)
