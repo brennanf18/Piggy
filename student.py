@@ -64,21 +64,23 @@ class Piggy(PiggyParent):
             return False # Shut the dance down
 
 
-        for x in range(1):
+        for x in range(2):
             
             self.forward_skipp()
             time.sleep(.5)
             self.right_twirl()
             time.sleep(.1)
             self.left_twirl()
-            time.sleep(.5)
+            time.sleep(.8)
             self.cha_cha()
             time.sleep(.8)
             self.laberinth()
             time.sleep(.5)
             self.cha_cha()
             time.sleep(.5)
-            self.wheelie_time()
+            
+        self.wheelie_time()
+        self.(stop)
             
 
             # look for more moves
@@ -144,8 +146,6 @@ class Piggy(PiggyParent):
 
     def wheelie_time(self):
         self.fwd(right=100, left=100)
-        time.sleep(.5)
-        self.fwd(right=-100, left=-100)
         time.sleep(.5)
         for x in range(2):
             self.turn_by_deg(180)
