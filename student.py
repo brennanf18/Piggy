@@ -136,14 +136,16 @@ class Piggy(PiggyParent):
             self.servo(2000)
             time.sleep(.1)
             self.fwd()
-            time.sleep(.1)
+            time.sleep(.3)
             self.stop()
 
     def laberinth(self):
         for x in range(4):
             self.right(primary=70, counter=30)
+            self.servo(2000)
             time.sleep(1)
             self.left(primary=70, counter=30)
+            self.servo(-2000)
             time.sleep(1)
         self.stop()
 
