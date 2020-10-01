@@ -142,17 +142,19 @@ class Piggy(PiggyParent):
     def laberinth(self):
         for x in range(4):
             self.right(primary=70, counter=30)
+            time.sleep(1)
             self.servo(1000)
-            time.sleep(1)
+            time.sleep(.1)
             self.left(primary=70, counter=30)
-            self.servo(-1000)
             time.sleep(1)
+            self.servo(-1000)
         self.stop()
 
     def wheelie_time(self):
         self.fwd(right=100, left=100)
         time.sleep(.5)
         self.fwd(right=-100, left=-100)
+        time.sleep(.3)
         for x in range(2):
             self.turn_by_deg(180)
             self.turn_by_deg(180)
