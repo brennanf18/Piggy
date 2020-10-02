@@ -99,7 +99,7 @@ class Piggy(PiggyParent):
 
     def forward_skipp(self):
         """this is my first move"""
-        for x in range(3):
+        for x in range(4):
             self.fwd(right=100, left=100)
             time.sleep(.5)
             self.servo(1000)# Head is moving while stopped
