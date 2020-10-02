@@ -70,7 +70,7 @@ class Piggy(PiggyParent):
             self.right_twirl()
             time.sleep(.1)
             self.left_twirl()
-            time.sleep(.8)
+            time.sleep(.8) # I have to add time.sleep because the robot's motor will overheat
             self.cha_cha()
             time.sleep(.8)
             self.laberinth()
@@ -172,8 +172,7 @@ class Piggy(PiggyParent):
             self.turn_by_deg(180)
             self.stop()
 
-
-        # This is the last part of the dance, and only happens once after the loop          
+         # This is the last part of the dance, and only happens once after the loop          
 
     def safe_to_dance(self):
         """ Does a 360 distance check and returns true if safe """
