@@ -64,7 +64,7 @@ class Piggy(PiggyParent):
             return False # Shut the dance down
 
 
-        for x in range(1): # The only way I can get the code to run right is to not use the loop
+        for x in range(3): # The dance will repeat three times
             self.forward_skipp()
             time.sleep(.5)
             self.right_twirl()
@@ -77,21 +77,9 @@ class Piggy(PiggyParent):
             time.sleep(.5)
             self.cha_cha()
             time.sleep(.5)
-            self.forward_skipp()
-            time.sleep(.5)
-            self.right_twirl()
-            time.sleep(.1)
-            self.left_twirl()
-            time.sleep(.8)
-            self.cha_cha()
-            time.sleep(.8)
-            self.laberinth()
-            time.sleep(.5)
-            self.cha_cha()
-            time.sleep(.5)
+           
 
-
-        self.wheelie_time()
+        self.wheelie_time() # the grand finale
         self.stop()
             
 
