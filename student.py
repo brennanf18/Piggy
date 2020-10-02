@@ -99,14 +99,14 @@ class Piggy(PiggyParent):
 
     def forward_skipp(self):
         """this is my first move"""
-        for x in range(4):
+        for x in range(3):
             self.fwd(right=100, left=100)
             time.sleep(.5)
-            self.servo(1000)
+            self.servo(1000)# Head is moving while stopped
             time.sleep(.1)
             self.servo(2000)
             time.sleep(.1)
-            self.fwd(right=-100, left=-100)
+            self.fwd(right=-100, left=-100)# Goes back to make a skip and a wheelie
             time.sleep(.1)
             self.servo(-1000)
             self.stop()
@@ -114,47 +114,58 @@ class Piggy(PiggyParent):
         
         # Then I twist to the right 
     def right_twirl(self):
+        """ First spin going to the right"""
         for x in range(2):
-            self.turn_by_deg(180)
+            self.turn_by_deg(180) # spins 2 times to the right
             self.turn_by_deg(180)
             self.stop()
-            
-    
+
+        # in the spin, the robot should be in a wheelie    
+
     def left_twirl(self):
+        """ Second spin going the left"""
         for x in range(2):
-            self.turn_by_deg(-170)
+            self.turn_by_deg(-170)# spins 2 times to the left
             self.turn_by_deg(-170)
             self.stop()
 
-    
+         # should be in a wheelie
+
     def cha_cha(self):
+        """ Does a cha cha backwards"""
         for x in range(4):
             self.back()
             time.sleep(.3)
-            self.servo(1000)
+            self.servo(1000) # head should be moving while backing up
             time.sleep(.3)
             self.servo(2000)
             time.sleep(.3)
-            self.fwd()
+            self.fwd() # moves the cha cha foward and created a small wheelie
             time.sleep(.3)
             self.stop()
 
-    def laberinth(self):
+        # cha cha should backup and go foward four times
+
+    def laberinth(self):   # Thanks Haydyn for the code! # I changed the timeing a little from Haydyn's
+    """Moves like a snake!"""
         for x in range(4):
-            self.servo(1000)
+            self.servo(1000) 
             time.sleep(.1)
             self.right(primary=70, counter=30)
             time.sleep(1)
             self.servo(2000)
-            time.sleep(.1)
+            time.sleep(.1) # time makes each turn longer and wider
             self.left(primary=70, counter=30)
             time.sleep(1)
         self.stop()
 
-    def wheelie_time(self):
-        self.fwd(right=100, left=100)
+        # should move in a laberinth pattern
+
+    def wheelie_time(self): 
+        """THE GRAND FINALE!"""
+        self.fwd(right=100, left=100) # goes backwards, to make some room
         time.sleep(.5)
-        self.fwd(right=-100, left=-100)
+        self.fwd(right=-100, left=-100) # Pops a wheelie and spins
         time.sleep(.3)
         for x in range(2):
             self.turn_by_deg(180)
@@ -162,7 +173,7 @@ class Piggy(PiggyParent):
             self.stop()
 
 
-
+        # This is the last part of the dance, and only happens once after the loop          
 
     def safe_to_dance(self):
         """ Does a 360 distance check and returns true if safe """
