@@ -64,25 +64,13 @@ class Piggy(PiggyParent):
             return False # Shut the dance down
 
 
-        for x in range(1): # The only way I can get the code to run right, is to repeat and not use loop
+        for x in range(3): # The only way I can get the code to run right, is to repeat and not use loop
             self.forward_skipp()
             time.sleep(.5)
             self.right_twirl()
             time.sleep(.1)
             self.left_twirl()
             time.sleep(.8) # I have to add time.sleep because the robot's motor will overheat
-            self.cha_cha()
-            time.sleep(.8)
-            self.laberinth()
-            time.sleep(.5)
-            self.cha_cha()
-            time.sleep(.5)
-            self.forward_skipp()
-            time.sleep(.5)
-            self.right_twirl()
-            time.sleep(.1)
-            self.left_twirl()
-            time.sleep(.8)
             self.cha_cha()
             time.sleep(.8)
             self.laberinth()
