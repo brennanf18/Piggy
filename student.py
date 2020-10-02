@@ -135,7 +135,7 @@ class Piggy(PiggyParent):
         # cha cha should backup and go foward four times
 
     def laberinth(self):   # Thanks Haydyn for the code! # I changed the timeing a little from Haydyn's
-    """Moves like a snake!"""
+        """Moves like a snake!"""
         for x in range(4):
             self.servo(1000) 
             time.sleep(.1)
