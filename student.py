@@ -218,7 +218,7 @@ class Piggy(PiggyParent):
         return True
 
     def nav(self):
-    """Auto-pilot program"""  
+        """Auto-pilot program"""  
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         print("-------- [ Press CTRL + C to stop me ] --------\n")
         print("-----------! NAVIGATION ACTIVATED !------------\n")
