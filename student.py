@@ -231,8 +231,8 @@ class Piggy(PiggyParent):
                 print("OH NO!!! Something is in my way!!")
                 self.turn_by_deg(90)
                 time.sleep(.01)
-        else:
-            self.fwd()
+            else:
+                self.fwd()
     
         # TODO: scan so we can decide left or right
         # TODO: average the right side of the scan dict
