@@ -217,6 +217,18 @@ class Piggy(PiggyParent):
         # if the three-part check didn't freak out 
         return True
 
+    def turn_until_clear(self):
+        """ Rotate right until no obstacle is seen """
+        # make sure we are looking straight
+        print("----!!TURNING UNTIL CLEAR!!----")
+        self.servp(self.MIDPOINT)
+        # so long as we see something close, keep turning left
+        while self.read_distance() < self.SAFE_DISTANCE:
+            self.left(primary =40, counter=-40)
+            time.sleep(.05)
+        # stop motion before we end the method
+        self.stop
+
     def nav(self):
         """Auto-pilot program"""  
         print("-----------! NAVIGATION ACTIVATED !------------\n")
@@ -224,13 +236,11 @@ class Piggy(PiggyParent):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         
         # TODO: build self.quick_check() that does a fast, 3-part check instead of read_distance
-        self.fwd()
+
         while True:
             if not self.quick_check():  # TODO: fix this magic number
                 self.stop()
-                print("OH NO!!! Something is in my way!!")
-                self.turn_by_deg(90)
-                time.sleep(.01)
+                self.turn_until_clear()
             else:
                 self.fwd()
     
