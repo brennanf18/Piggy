@@ -221,7 +221,7 @@ class Piggy(PiggyParent):
         """ Rotate right until no obstacle is seen """
         # make sure we are looking straight
         print("----!!TURNING UNTIL CLEAR!!----")
-        self.servp(self.MIDPOINT)
+        self.servo(self.MIDPOINT)
         # so long as we see something close, keep turning left
         while self.read_distance() < self.SAFE_DISTANCE:
             self.left(primary =40, counter=-40)
