@@ -228,10 +228,27 @@ class Piggy(PiggyParent):
             print("ANGLE: %d | DIST: %d" % (angle, dist))
         print("\nI saw %d objects" % count)
 
-            
+    
+    def super_count(self):
+        for angle in range(self.MIDPOINT-350, self.MIDPOINT+350, 15):
+            self.scan_data = OrderedDict(sorted(self.scan_data.items())) 
+            self.servo(angle)
+            self.scan_data[angle] = self.read_distance()
+        for angle in self.scan_data:
+            dist= self.scan_data[angle]
+            if dist < self.SAFE_DISTANCE and not see_an_object:
+                see_an_object= True
+                count += 1
+                print("~~~~I SEE SOMETHING!!~~~~")
+            elif dist > self.SAFE_DISTANCE and see_an_object:
+                see_an_object = False
+                print("I guess the object ended")
+
+            print("ANGLE: %d | DIST: %d" % (angle, dist))
+        print("\nI saw %d objects" % count)
+        
         for x in range(4):
-            self.scan()
-            self.obstacle_count()
+            self.super_count()
             self.turn_by_deg(90)
         
     
