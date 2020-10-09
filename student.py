@@ -229,10 +229,10 @@ class Piggy(PiggyParent):
         print("\nI saw %d objects" % count)
 
             
-        for x in range(4):
-            self.scan()
-            self.obstacle_count()
-            self.turn_by_deg(90)
+    for x in range(4):
+        self.scan()
+        self.obstacle_count()
+        self.turn_by_deg(90)
         
     
     def quick_check(self):
