@@ -196,7 +196,7 @@ class Piggy(PiggyParent):
         time.sleep(.25) # give your head time to move
         self.servo(2000) # look left
 
-    for x in range(4):
+    
         def scan(self):
             """Sweep the servo and populate the scan_data dictionary"""
             for angle in range(self.MIDPOINT-350, self.MIDPOINT+350, 10):
@@ -228,8 +228,11 @@ class Piggy(PiggyParent):
                 print("ANGLE: %d | DIST: %d" % (angle, dist))
             print("\nI saw %d objects" % count)
 
-            self.turn_by_deg(90)
             
+        for x in range(4):
+            self.scan()
+            self.obstacle_count()
+            self.turn_by_deg(90)
         
     
     def quick_check(self):
