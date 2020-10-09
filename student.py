@@ -220,7 +220,7 @@ class Piggy(PiggyParent):
                 see_an_object= True
                 count += 1
                 print("~~~~I SEE SOMETHING!!~~~~")
-                elif dist > self.SAFE_DISTANCE and see_an_object
+            elif dist > self.SAFE_DISTANCE and see_an_object
                 see_an_object = False
                 print("I guess the object ended")
 
