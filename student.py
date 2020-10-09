@@ -224,7 +224,7 @@ class Piggy(PiggyParent):
                 see_an_object = False
                 print("I guess the object ended")
 
-            print("ANGLE: %d | DIST: %d" % (angle, dist)
+            print("ANGLE: %d | DIST: %d" % (angle, dist))
         print("\nI saw %d objects" % count)
     
     
