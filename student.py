@@ -1,4 +1,5 @@
 #!/usr/bin python3
+from collections import OrderedDict
 from teacher import PiggyParent
 import sys
 import time
@@ -224,9 +225,11 @@ class Piggy(PiggyParent):
         time.sleep(.25) # give your head time to move
         self.servo(2000) # look left
 
+    
     def scan(self):
         """Sweep the servo and populate the scan_data dictionary"""
-        for angle in range(self.MIDPOINT-350, self.MIDPOINT+350, 3):
+        for angle in range(self.MIDPOINT-350, self.MIDPOINT+350, 15):
+            self.scan_data = OrderedDict(sorted(self.scan_data.items())) 
             self.servo(angle)
             self.scan_data[angle] = self.read_distance()
         # sort data for easier analysis
@@ -234,6 +237,7 @@ class Piggy(PiggyParent):
     
     def obstacle_count(self):
         """Does a 360 scan and returns the number of obstacles it sees"""
+<<<<<<< HEAD
         # print the scan
         self.scan()
         # find out how many obstacles there were during scanning process
@@ -253,7 +257,40 @@ class Piggy(PiggyParent):
 
             print("ANGLE: %d / Dist: %d" % (angle, dist))
         print("ahhh...I saw %d obects" % count)
+=======
+        # do a scan of the area in front of the robot
+        self.scan()
+        # sort the scan data for easier analysis
+        
+        # figure out how many obstacles there were
+        see_an_object = False
+        count = 0
 
+    # print the results
+        for angle in self.scan_data:
+            dist= self.scan_data[angle]
+            if dist < self.SAFE_DISTANCE and not see_an_object:
+                see_an_object= True
+                count += 1
+                print("~~~~I SEE SOMETHING!!~~~~")
+            elif dist > self.SAFE_DISTANCE and see_an_object:
+                see_an_object = False
+                print("I guess the object ended")
+
+            print("ANGLE: %d | DIST: %d" % (angle, dist))
+        print("\nI saw %d objects" % count)
+>>>>>>> 567bbe37bd0ef64d3b25ea1f8924b718cdf4f4d3
+
+    
+    def super_count(self):
+        self.scan()
+        self.obstacle_count()
+        
+        for x in range(4):
+            self.super_count()
+            self.turn_by_deg(90)
+        
+    
     def quick_check(self):
         """ Moves the servo to three angles and performs a distance check """
         # loop three times and moves the servo
