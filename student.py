@@ -228,8 +228,7 @@ class Piggy(PiggyParent):
     
     def scan(self):
         """Sweep the servo and populate the scan_data dictionary"""
-        for angle in range(self.MIDPOINT-350, self.MIDPOINT+350, 15):
-            self.scan_data = OrderedDict(sorted(self.scan_data.items())) 
+        for angle in range(self.MIDPOINT-450, self.MIDPOINT+451, 40):
             self.servo(angle)
             self.scan_data[angle] = self.read_distance()
         # sort data for easier analysis
@@ -237,7 +236,6 @@ class Piggy(PiggyParent):
     
     def obstacle_count(self):
         """Does a 360 scan and returns the number of obstacles it sees"""
-<<<<<<< HEAD
         # print the scan
         self.scan()
         # find out how many obstacles there were during scanning process
@@ -257,7 +255,7 @@ class Piggy(PiggyParent):
 
             print("ANGLE: %d / Dist: %d" % (angle, dist))
         print("ahhh...I saw %d obects" % count)
-=======
+
         # do a scan of the area in front of the robot
         self.scan()
         # sort the scan data for easier analysis
@@ -279,7 +277,7 @@ class Piggy(PiggyParent):
 
             print("ANGLE: %d | DIST: %d" % (angle, dist))
         print("\nI saw %d objects" % count)
->>>>>>> 567bbe37bd0ef64d3b25ea1f8924b718cdf4f4d3
+
 
     
     def super_count(self):
@@ -294,7 +292,7 @@ class Piggy(PiggyParent):
     def quick_check(self):
         """ Moves the servo to three angles and performs a distance check """
         # loop three times and moves the servo
-        for ang in range(self.MIDPOINT -100, self.MIDPOINT +101, 100):
+        for ang in range(self.MIDPOINT -150, self.MIDPOINT +151, 150):
             self.servo(ang)
             time.sleep(.05)
             if self.read_distance() < self.SAFE_DISTANCE:
@@ -323,6 +321,8 @@ class Piggy(PiggyParent):
         
         # TODO: build self.quick_check() that does a fast, 3-part check instead of read_distance
         
+        turn_count = 0
+
         while True:
             if not self.quick_check():
                 turn_count += 1
@@ -330,20 +330,18 @@ class Piggy(PiggyParent):
                 time.sleep(0.3)
                 self.stop()
                 #self.turn_until_clear()
-                if turn_count > 3 and turn_count % 5 == 0:
+                if turn_count % 5 == 0:
                     #self.turn_to_deg(exit_ang)
                     self.turn_until_clear()
                 elif 'l' in self.right_or_left():
-                    self.turn_by_deg(315)
+                    self.turn_by_deg(45)
                 else:
-                    self.turn_by_deg(-315)
+                    self.turn_by_deg(45)
             else:
                 self.fwd()
 
 
-        # TODO: scan so we can decide left or right
-        # TODO: average the right side of the scan dict
-        # TODO: average the left side of the scan dict
+    
         
 
 
