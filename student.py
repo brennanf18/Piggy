@@ -21,7 +21,7 @@ class Piggy(PiggyParent):
         self.RIGHT_DEFAULT = 80
         self.SAFE_DISTANCE = 300
         self.CLOSE_DISTANCE = 150
-        self.MIDPOINT = 1200  # what servo command (1000-2000) is straight forward for your bot?
+        self.MIDPOINT = 120 0  # what servo command (1000-2000) is straight forward for your bot?
         self.set_motor_power(self.MOTOR_LEFT + self.MOTOR_RIGHT, 0)
         self.load_defaults()
         
@@ -164,6 +164,35 @@ class Piggy(PiggyParent):
 
          # This is the last part of the dance, and only happens once after the loop          
 
+    def right_or_left(self):
+        """Should turn right or left"""
+        self.scan()
+
+        right_sum = 0
+        right_avg = 0
+        left_sum = 0
+        left_avg = 0
+
+        # analyze scan results
+        for angle in self.scan_data:
+            # average up the distances on the right side
+            if angle < self.MIDPOINT:
+                right_sum += self.scan_data[angle]
+                right_avg += 1
+            else:
+                left_sum += self.scan_data[angle]
+                left_avg += 1
+
+            # Calculate avergages
+            left_avg = left_sum / left_avg
+            right_avg = right_sum / right_avg
+
+            if left_avg > right_avg:
+                return 'l'
+            else:
+                return 'r'
+
+
     def safe_to_dance(self):
         """ Does a 360 distance check and returns true if safe """
         # Check for all fail/early-termination conditions
@@ -200,10 +229,30 @@ class Piggy(PiggyParent):
         for angle in range(self.MIDPOINT-350, self.MIDPOINT+350, 3):
             self.servo(angle)
             self.scan_data[angle] = self.read_distance()
-
+        # sort data for easier analysis
+        self.scan_data = OrderedDict(sorted(self.scan_data.items()))
+    
     def obstacle_count(self):
         """Does a 360 scan and returns the number of obstacles it sees"""
-        pass
+        # print the scan
+        self.scan()
+        # find out how many obstacles there were during scanning process
+        seenanobject = False
+        count = 0
+
+        #print the results
+        for angle in self.scan_data:
+            dist = self.scan_data[angle]
+            if dist < self.SAFE_DISTANCE and not seenanobject:
+                seenanobject = True
+                count += 1
+                print("I see something!")
+            elif dist > self.SAFE_DISTANCE and seenanobject:
+                seenanobject = False
+                print("no object is seen")
+
+            print("ANGLE: %d / Dist: %d" % (angle, dist))
+        print("ahhh...I saw %d obects" % count)
 
     def quick_check(self):
         """ Moves the servo to three angles and performs a distance check """
@@ -236,14 +285,25 @@ class Piggy(PiggyParent):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         
         # TODO: build self.quick_check() that does a fast, 3-part check instead of read_distance
-
+        
         while True:
-            if not self.quick_check():  # TODO: fix this magic number
+            if not self.quick_check():
+                turn_count += 1
+                self.back()
+                time.sleep(0.3)
                 self.stop()
-                self.turn_until_clear()
+                #self.turn_until_clear()
+                if turn_count > 3 and turn_count % 5 == 0:
+                    #self.turn_to_deg(exit_ang)
+                    self.turn_until_clear()
+                elif 'l' in self.right_or_left():
+                    self.turn_by_deg(315)
+                else:
+                    self.turn_by_deg(-315)
             else:
                 self.fwd()
-    
+
+
         # TODO: scan so we can decide left or right
         # TODO: average the right side of the scan dict
         # TODO: average the left side of the scan dict
