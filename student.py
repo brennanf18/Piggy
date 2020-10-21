@@ -185,13 +185,13 @@ class Piggy(PiggyParent):
                 left_avg += 1
 
             # Calculate avergages
-            left_avg = left_sum / left_avg
-            right_avg = right_sum / right_avg
+        left_avg = left_sum / left_avg
+        right_avg = right_sum / right_avg
 
-            if left_avg > right_avg:
-                return 'l'
-            else:
-                return 'r'
+        if left_avg > right_avg:
+            return 'l'
+        else:
+            return 'r'
 
 
     def safe_to_dance(self):
