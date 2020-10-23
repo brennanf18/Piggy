@@ -289,7 +289,7 @@ class Piggy(PiggyParent):
             self.turn_by_deg(90)
         
     
-    def quick_check(self):
+    def quick_check(self): # a quick check to see the surroundings
         """ Moves the servo to three angles and performs a distance check """
         # loop three times and moves the servo
         for ang in range(self.MIDPOINT -150, self.MIDPOINT +151, 150):
@@ -325,7 +325,7 @@ class Piggy(PiggyParent):
         turn_count = 0
 
         self.fwd()
-        while True:
+        while True: # Frusteration Check
             if not self.quick_check():
                 turn_count += 1
                 self.stop()
@@ -345,7 +345,8 @@ class Piggy(PiggyParent):
             time.sleep(.1)
             
 
-
+        # Should back up from danger zone
+        # This could help make my robot go through the maze better
 
 
     
